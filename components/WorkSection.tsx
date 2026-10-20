@@ -32,17 +32,17 @@ export default function WorkSection({ projects }: WorkSectionProps) {
         };
 
   return (
-    <section id="work" className="py-24 md:py-36 px-4 sm:px-8 md:px-12 max-w-[1280px] mx-auto">
-      <div className="mb-14 md:mb-18">
-        <span className="font-mono text-xs uppercase tracking-wider text-muted block mb-3">
+    <section id="work" className="py-16 xs:py-20 sm:py-24 md:py-32 lg:py-36 px-4 sm:px-8 md:px-12 max-w-[1280px] mx-auto">
+      <div className="mb-8 xs:mb-10 sm:mb-14 md:mb-18">
+        <span className="font-mono text-xs uppercase tracking-wider text-muted block mb-2 xs:mb-3">
           Selected Work
         </span>
         <RevealText
           text="Featured Projects"
           as="h2"
-          className="font-display text-3xl md:text-5xl font-semibold tracking-tightest text-ink"
+          className="font-display text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tightest text-ink leading-tight"
         />
-        <p className="text-muted text-base md:text-lg mt-3 max-w-xl leading-relaxed">
+        <p className="text-muted text-sm xs:text-base md:text-lg mt-2.5 xs:mt-3 max-w-xl leading-relaxed">
           A curated selection of responsive websites and web applications built with modern frontend tools.
         </p>
       </div>
@@ -60,7 +60,7 @@ export default function WorkSection({ projects }: WorkSectionProps) {
           </p>
           <a
             href="#contact"
-            className="btn-diagonal min-h-[44px] px-6 py-2.5 mt-6 font-mono text-xs uppercase tracking-wider rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+            className="btn-diagonal min-h-[44px] px-6 py-2.5 mt-6 font-mono text-xs uppercase tracking-wider rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
           >
             Get in touch <span className="ml-1.5 font-mono">→</span>
           </a>

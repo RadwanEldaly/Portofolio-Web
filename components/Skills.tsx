@@ -88,37 +88,37 @@ export default function Skills() {
         };
 
   return (
-    <section id="skills" className="py-24 md:py-36 px-4 sm:px-8 md:px-12 border-t border-line/20">
+    <section id="skills" className="py-16 xs:py-20 sm:py-24 md:py-32 lg:py-36 px-4 sm:px-8 md:px-12 border-t border-line/20">
       <div className="max-w-[1280px] mx-auto">
-        <div className="mb-14 md:mb-18">
-          <span className="font-mono text-xs uppercase tracking-wider text-muted block mb-3">
+        <div className="mb-8 xs:mb-10 sm:mb-14 md:mb-18">
+          <span className="font-mono text-xs uppercase tracking-wider text-muted block mb-2 xs:mb-3">
             Core Competencies
           </span>
           <RevealText
             text="Technical Skills"
             as="h2"
-            className="font-display text-3xl md:text-5xl font-semibold tracking-tightest text-ink leading-tight"
+            className="font-display text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tightest text-ink leading-tight"
           />
-          <p className="text-muted text-base md:text-lg mt-3 max-w-xl leading-relaxed">
+          <p className="text-muted text-sm xs:text-base md:text-lg mt-2.5 xs:mt-3 max-w-xl leading-relaxed">
             Production-proven frontend technologies and development libraries I build with daily.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 xs:gap-4 sm:gap-5">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
               {...anim(index * 0.05)}
-              className="group p-5 sm:p-6 bg-mat/60 hover:bg-paper border border-line/30 hover:border-line/70 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-4"
+              className="group p-3.5 xs:p-4 sm:p-5 md:p-6 bg-[#111111] hover:bg-white border border-white/10 hover:border-[#171717]/20 rounded-xl transition-all duration-300 shadow-sm hover:shadow-lg flex items-center gap-3.5 xs:gap-4"
             >
-              <div className="w-12 h-12 rounded-xl bg-paper border border-line/30 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform duration-300">
+              <div className="w-11 h-11 xs:w-12 xs:h-12 rounded-xl bg-white/10 group-hover:bg-[#f5f3ee] border border-white/15 group-hover:border-[#171717]/15 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-all duration-300">
                 <SkillIcon icon={skill.icon} />
               </div>
               <div className="min-w-0">
-                <span className="font-display text-base font-semibold text-ink block truncate group-hover:text-black">
+                <span className="font-display text-sm xs:text-base font-semibold text-white group-hover:text-[#171717] block truncate transition-colors duration-300">
                   {skill.name}
                 </span>
-                <span className="font-mono text-[11px] text-muted block truncate mt-0.5">
+                <span className="font-mono text-[10px] xs:text-[11px] text-white/50 group-hover:text-[#171717]/60 block truncate mt-0.5 transition-colors duration-300">
                   {skill.category}
                 </span>
               </div>

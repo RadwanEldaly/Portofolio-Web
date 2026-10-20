@@ -69,11 +69,11 @@ export default function ProjectPlate({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={transformStyle}
-      className="group h-full flex flex-col justify-between bg-mat/50 hover:bg-paper border border-line/30 hover:border-line/70 rounded-2xl p-5 sm:p-6 transition-all duration-300 shadow-sm hover:shadow-lg will-change-transform"
+      className="group h-full flex flex-col justify-between bg-mat/50 hover:bg-paper border border-line/30 hover:border-line/70 rounded-2xl p-4 xs:p-5 sm:p-6 transition-all duration-300 shadow-sm hover:shadow-lg will-change-transform"
     >
       <div>
         {/* Project preview screenshot */}
-        <div className="relative mb-5 rounded-xl overflow-hidden shadow-xs border border-line/20">
+        <div className="relative mb-4 xs:mb-5 rounded-xl overflow-hidden shadow-xs border border-line/20">
           <ProjectImage
             image={project.cover}
             priority={priority}
@@ -101,23 +101,23 @@ export default function ProjectPlate({
         </div>
 
         {/* Title */}
-        <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tightest text-ink group-hover:text-black transition-colors">
+        <h3 className="font-display text-lg xs:text-xl sm:text-2xl font-bold tracking-tightest text-ink group-hover:text-black transition-colors leading-snug break-words">
           {project.title}
         </h3>
 
         {/* Summary */}
-        <p className="text-muted text-sm leading-relaxed mt-2.5 line-clamp-3">
+        <p className="text-muted text-xs xs:text-sm leading-relaxed mt-2 xs:mt-2.5 line-clamp-3">
           {project.summary}
         </p>
       </div>
 
-      <div className="mt-6 pt-4 border-t border-line/20 flex flex-wrap items-center justify-between gap-4">
+      <div className="mt-5 xs:mt-6 pt-3.5 xs:pt-4 border-t border-line/20 flex flex-col xs:flex-row xs:items-center justify-between gap-3 xs:gap-4">
         {/* Stack tags */}
-        <div className="flex flex-wrap gap-1.5 max-w-[65%]">
+        <div className="flex flex-wrap items-center gap-1.5 flex-1 min-w-0">
           {project.stack.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="font-mono text-[10px] sm:text-[11px] px-2 py-0.5 bg-paper border border-line/20 text-ink rounded-sm"
+              className="font-mono text-[10px] sm:text-[11px] px-2 py-0.5 bg-paper border border-line/20 text-ink rounded-sm whitespace-nowrap"
             >
               {tag}
             </span>
@@ -133,7 +133,7 @@ export default function ProjectPlate({
         <button
           type="button"
           onClick={() => onSelect(project)}
-          className="btn-diagonal min-h-[40px] px-4 py-2 font-mono text-xs uppercase tracking-wider rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-ink shrink-0"
+          className="btn-diagonal w-full xs:w-auto min-h-[40px] px-4 py-2 font-mono text-xs uppercase tracking-wider rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ink shrink-0 justify-center text-center"
         >
           Details <span className="ml-1 font-mono">→</span>
         </button>

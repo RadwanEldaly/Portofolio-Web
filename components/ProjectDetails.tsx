@@ -87,7 +87,7 @@ export default function ProjectDetails({ project, onClose }: ProjectDetailsProps
     <AnimatePresence>
       {project && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-ink/60 backdrop-blur-sm overflow-y-auto"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 xs:p-4 sm:p-6 md:p-10 bg-ink/60 backdrop-blur-sm overflow-y-auto"
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               onClose();
@@ -104,10 +104,10 @@ export default function ProjectDetails({ project, onClose }: ProjectDetailsProps
             animate={{ opacity: 1, y: 0 }}
             exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative w-full max-w-4xl bg-paper border border-line shadow-2xl rounded-sm my-auto max-h-[90vh] flex flex-col overflow-hidden"
+            className="relative w-full max-w-4xl bg-paper border border-line shadow-2xl rounded-sm my-auto max-h-[92dvh] sm:max-h-[90vh] flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-paper/95 backdrop-blur-sm border-b border-line/20">
+            <div className="sticky top-0 z-10 flex items-center justify-between px-4 xs:px-6 py-3 xs:py-4 bg-paper/95 backdrop-blur-sm border-b border-line/20">
               <span className="font-mono text-xs uppercase tracking-wider text-muted">
                 Project details
               </span>
@@ -122,25 +122,25 @@ export default function ProjectDetails({ project, onClose }: ProjectDetailsProps
             </div>
 
             {/* Scrollable body */}
-            <div className="p-6 md:p-10 overflow-y-auto space-y-10">
+            <div className="p-4 xs:p-6 md:p-8 lg:p-10 overflow-y-auto space-y-6 xs:space-y-8 md:space-y-10">
               <header>
-                <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-muted mb-3">
+                <div className="flex flex-wrap items-center gap-2 xs:gap-3 font-mono text-xs text-muted mb-2 xs:mb-3">
                   {project.year && <span>{project.year}</span>}
                   {project.year && project.role && <span>·</span>}
                   {project.role && <span>{project.role}</span>}
                 </div>
                 <h2
                   id="project-dialog-title"
-                  className="font-display text-3xl md:text-4xl font-semibold tracking-tightest text-ink leading-tight"
+                  className="font-display text-2xl xs:text-3xl md:text-4xl font-semibold tracking-tightest text-ink leading-tight break-words"
                 >
                   {project.title}
                 </h2>
-                <p className="mt-4 text-base md:text-lg text-muted leading-relaxed max-w-2xl">
+                <p className="mt-3 xs:mt-4 text-sm xs:text-base md:text-lg text-muted leading-relaxed max-w-2xl">
                   {project.summary}
                 </p>
 
                 {/* Stack tags */}
-                <div className="flex flex-wrap gap-2 mt-6">
+                <div className="flex flex-wrap gap-1.5 xs:gap-2 mt-4 xs:mt-6">
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
@@ -154,7 +154,7 @@ export default function ProjectDetails({ project, onClose }: ProjectDetailsProps
 
               {/* Conditional text blocks: only rendered if present in data */}
               {(project.details?.whatItIs || project.details?.whatIBuilt) && (
-                <div className="grid md:grid-cols-2 gap-8 border-t border-line/20 pt-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 border-t border-line/20 pt-6 md:pt-8">
                   {project.details.whatItIs && (
                     <div>
                       <h3 className="font-mono text-xs uppercase tracking-wider text-muted mb-2">
@@ -180,7 +180,7 @@ export default function ProjectDetails({ project, onClose }: ProjectDetailsProps
 
               {/* Cover & Gallery screenshots */}
               {(project.cover || (project.gallery && project.gallery.length > 0)) && (
-                <div className="space-y-6 border-t border-line/20 pt-8">
+                <div className="space-y-4 xs:space-y-6 border-t border-line/20 pt-6 md:pt-8">
                   <h3 className="font-mono text-xs uppercase tracking-wider text-muted">
                     Screenshots
                   </h3>
@@ -207,11 +207,11 @@ export default function ProjectDetails({ project, onClose }: ProjectDetailsProps
             </div>
 
             {/* Footer */}
-            <div className="sticky bottom-0 z-10 flex justify-end px-6 py-4 bg-paper/95 backdrop-blur-sm border-t border-line/20">
+            <div className="sticky bottom-0 z-10 flex justify-end px-4 xs:px-6 py-3 xs:py-4 bg-paper/95 backdrop-blur-sm border-t border-line/20">
               <button
                 type="button"
                 onClick={onClose}
-                className="btn-diagonal min-h-[40px] px-6 py-2 font-mono text-xs uppercase tracking-wider rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+                className="btn-diagonal min-h-[42px] px-6 py-2 font-mono text-xs uppercase tracking-wider rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
               >
                 Close
               </button>

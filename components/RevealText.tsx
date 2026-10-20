@@ -12,8 +12,8 @@ type RevealTextProps = {
 
 /**
  * Editorial headline reveal.
- * Uses a safe viewport amount (~0.2) to prevent tall headings from getting stuck on mobile,
- * and respects user preference for reduced motion.
+ * Orchestrates child word motion from the visible parent container,
+ * ensuring robust intersection triggers across all screen sizes and mobile viewports.
  */
 export default function RevealText({
   text,
@@ -32,20 +32,44 @@ export default function RevealText({
 
   const words = text.split(" ");
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        delayChildren: delay,
+        staggerChildren: 0.04,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { y: "115%", opacity: 0 },
+    visible: {
+      y: "0%",
+      opacity: 1,
+      transition: {
+        duration: 0.65,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
-    <Tag className={className}>
+    <Tag
+      className={`${className} break-words`}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once, amount: 0.1 }}
+    >
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden align-top mr-[0.25em]">
+        <span
+          key={i}
+          className="inline-block overflow-hidden align-top mr-[0.25em] pb-[0.08em]"
+        >
           <motion.span
             className="inline-block"
-            initial={{ y: "110%" }}
-            whileInView={{ y: "0%" }}
-            viewport={{ once, amount: 0.15 }}
-            transition={{
-              duration: 0.75,
-              ease: [0.22, 1, 0.36, 1],
-              delay: delay + i * 0.03,
-            }}
+            variants={childVariants}
           >
             {word}
           </motion.span>

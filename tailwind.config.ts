@@ -25,6 +25,9 @@ const config: Config = {
         tightest: "-0.04em",
         wide2: "0.2em",
       },
+      screens: {
+        xs: "480px",
+      },
       maxWidth: {
         "screen-xl": "1280px",
       },

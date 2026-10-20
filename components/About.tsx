@@ -22,12 +22,12 @@ export default function About() {
       };
 
   return (
-    <section id="about" className="py-24 md:py-36 px-4 sm:px-8 md:px-12 border-t border-line/20">
+    <section id="about" className="py-16 xs:py-20 sm:py-24 md:py-32 lg:py-36 px-4 sm:px-8 md:px-12 border-t border-line/20">
       <div className="max-w-[1280px] mx-auto">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xs:gap-10 sm:gap-12 lg:gap-16 items-center">
           {/* Portrait presentation */}
           <motion.div {...anim} className="lg:col-span-5 order-2 lg:order-1">
-            <div className="relative max-w-[280px] sm:max-w-[340px] mx-auto lg:mx-0">
+            <div className="relative max-w-[240px] xs:max-w-[280px] sm:max-w-[340px] mx-auto lg:mx-0">
               <div className="relative aspect-[1/1] rounded-2xl overflow-hidden border border-line/40 bg-mat shadow-md">
                 <Image
                   src="/images/radwan-portrait.jpg"
@@ -35,22 +35,22 @@ export default function About() {
                   width={824}
                   height={1024}
                   quality={95}
-                  sizes="(max-width: 768px) 280px, 340px"
+                  sizes="(max-width: 480px) 240px, (max-width: 768px) 280px, 340px"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
 
               {/* Stats highlights */}
-              <div className="grid grid-cols-2 gap-3 mt-4">
+              <div className="grid grid-cols-2 gap-2.5 xs:gap-3 mt-3.5 xs:mt-4">
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="p-3.5 rounded-xl bg-mat border border-line/30 flex flex-col items-center justify-center text-center shadow-sm"
+                    className="p-3 xs:p-3.5 sm:p-4 rounded-xl bg-mat border border-line/30 flex flex-col items-center justify-center text-center shadow-sm"
                   >
-                    <span className="font-display text-2xl sm:text-3xl font-bold text-ink">
+                    <span className="font-display text-xl xs:text-2xl sm:text-3xl font-bold text-ink">
                       {stat.value}
                     </span>
-                    <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-muted mt-0.5">
+                    <span className="font-mono text-[10px] xs:text-[11px] uppercase tracking-wider text-muted mt-0.5">
                       {stat.label}
                     </span>
                   </div>
@@ -60,22 +60,22 @@ export default function About() {
           </motion.div>
 
           {/* Biography content */}
-          <motion.div {...anim} className="lg:col-span-7 order-1 lg:order-2 space-y-6">
+          <motion.div {...anim} className="lg:col-span-7 order-1 lg:order-2 space-y-4 xs:space-y-6">
             <span className="font-mono text-xs uppercase tracking-wider text-muted block">
               Background &amp; Track Record
             </span>
             <RevealText
               text="About Radwan"
               as="h2"
-              className="font-display text-3xl md:text-5xl font-semibold tracking-tightest text-ink leading-tight"
+              className="font-display text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tightest text-ink leading-tight"
             />
-            <p className="font-body text-base md:text-lg text-ink leading-relaxed max-w-xl font-normal pt-2">
+            <p className="font-body text-sm xs:text-base md:text-lg text-ink leading-relaxed max-w-xl font-normal pt-1 xs:pt-2">
               I&apos;m an early-career web developer based in Cairo with 2+ years of hands-on
               experience building responsive, production-ready interfaces. Having delivered 15+
               real projects, I focus on clean UI engineering, modular architectures, and code that is
               reliable and straightforward to maintain.
             </p>
-            <p className="font-body text-base md:text-lg text-muted leading-relaxed max-w-xl">
+            <p className="font-body text-sm xs:text-base md:text-lg text-muted leading-relaxed max-w-xl">
               My day-to-day stack centers on React, Next.js, TypeScript, and modern CSS with Tailwind.
               I take pride in creating performant web experiences that feel fluid, look refined, and
               accommodate all devices effortlessly.
